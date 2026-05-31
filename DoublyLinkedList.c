@@ -46,6 +46,23 @@ void printAllNodes(DoublyLinkedList* list){
     }
 }
 
+void prepend(DoublyLinkedList* list, int value){
+    if(list == NULL) return;
+
+    Node* newNode = createNode(value);
+    if (newNode == NULL) return;
+
+    newNode->next = list->head;
+    if(list->head != NULL){
+        list->head->prev = newNode;
+    }
+    else{
+        list->tail = newNode;
+    }
+    list->head = newNode;
+    list->size++;
+}
+
 
 
 

@@ -12,5 +12,6 @@ DoublyLinkedList* createDoublyLinkedList();
 void append(DoublyLinkedList* a, int value);
 void freeDoublyLinkedList(DoublyLinkedList* list);
 void printAllNodes(DoublyLinkedList* list);
+void prepend(DoublyLinkedList* list, int value);
 
 #endif
