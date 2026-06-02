@@ -11,6 +11,7 @@ DoublyLinkedList* createDoublyLinkedList(){
     list->size = 0;
     return list;
 }
+
 void append(DoublyLinkedList* list, int value){
     if(list == NULL) return;
     Node* newNode = createNode(value);
@@ -63,6 +64,26 @@ void prepend(DoublyLinkedList* list, int value){
     list->size++;
 }
 
-
-
-
+void deleteNode(DoublyLinkedList* list , int index){
+    if(list == NULL || index < 0 || index >= list->size){
+        return;
+    }
+    Node* curr = list->head;
+    for(int i = 0; i < index; i++){
+        curr = curr->next;
+    }
+    if(curr == list->head){
+        list->head = list->head->next;
+    }
+    else{
+        curr->prev->next = curr->next;
+    }
+    if(curr == list->tail){
+        list->tail = curr->prev;
+    }
+    else{
+        curr->next->prev = curr->next;
+    }
+    free(curr);
+    list->size--;
+}
