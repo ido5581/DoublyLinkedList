@@ -87,3 +87,31 @@ void deleteNode(DoublyLinkedList* list , int index){
     free(curr);
     list->size--;
 }
+void insertNode(DoublyLinkedList* list, int index, int value){
+    if(list == NULL || index < 0 || index > list->size){
+        return;
+    }
+    if(index == 0){
+        prepend(list,value);
+        return;
+    }
+    if(index == list->size){
+        append(list,value);
+        return;
+    }
+    Node* newNode = createNode(value);
+    if(newNode == NULL){
+        return;
+    }
+    int i = 0;
+    Node* curr = list->head;
+    while(i < index){
+        curr = curr->next;
+        i++;
+    }
+    curr->prev->next = newNode;
+    newNode->prev = curr->prev;
+    newNode->next = curr;
+    curr->prev = newNode;
+    list->size++;
+}

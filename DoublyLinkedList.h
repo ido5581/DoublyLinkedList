@@ -9,9 +9,10 @@ typedef struct DoublyLinkedList{
 }DoublyLinkedList;
 
 DoublyLinkedList* createDoublyLinkedList();
-void append(DoublyLinkedList* a, int value);
 void freeDoublyLinkedList(DoublyLinkedList* list);
-void printAllNodes(DoublyLinkedList* list);
 void prepend(DoublyLinkedList* list, int value);
-void deleteNode(DoublyLinkedList* list , int index);
+void append(DoublyLinkedList* a, int value);
+void printAllNodes(DoublyLinkedList* list);
+void deleteNode(DoublyLinkedList* list, int index);
+void insertNode(DoublyLinkedList* list, int index, int value);
 #endif
